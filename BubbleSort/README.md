@@ -34,6 +34,24 @@ void bubble_sort(int arr[], int len) {
 
 冒泡排序是稳定排序，平均时间复杂度为 O(n^2)，空间复杂度为 O(1)。
 
+但是我们常看到冒泡排序的**最优时间复杂度是 O(n)**，那要如何优化呢？
 
+我们可以用一个 `flag` 参数记录新一轮的排序中元素是否做过交换，如果没有，说明前面参与比较过的元素已经是正序，那就没必要再从头比较了。代码实现如下：
 
-
+```c
+void bubble_sort_quicker(int arr[], int len) {
+    int i, j, tmp, flag;
+    for (i = 0; i < len - 1; i++) {
+        flag = 0;
+        for (j = 0; j < len - i - 1; j++) {  
+            if (arr[j] > arr[j + 1]) {  
+                tmp = arr[j];  
+                arr[j] = arr[j + 1];  
+                arr[j + 1] = tmp; 
+                flag = 1; 
+            }
+        }
+        if (!flag) return;
+    }  
+}
+```
