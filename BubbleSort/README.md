@@ -11,7 +11,7 @@
 
 ### 动图演示
 
-{% asset_img bubble-sort.gif %}
+![](bubble-sort.gif)
 
 ### 代码实现
 
