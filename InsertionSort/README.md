@@ -1,4 +1,4 @@
-## 插入排序
+## 直接插入排序
 
 直接插入排序（Straight Insertion Sort），是一种简单直观的排序算法，它的基本操作是不断地将尚未排好序的数插入到已经排好序的部分，好比打扑克牌时一张张抓牌的动作。在冒泡排序中，经过每一轮的排序处理后，序列后端的数是排好序的；而对于插入排序来说，经过每一轮的排序处理后，序列前端的数都是排好序的。
 
@@ -17,7 +17,7 @@
 
 ```c
 void StraightInsertionSort(int arr[], int len) {
-	int i, j, temp;
+    int i, j, temp;
 	for (i = 1; i < len; i++) {
 		temp = arr[i];
 		for (j = i; j > 0 && arr[j-1] > temp; j--)
