@@ -10,7 +10,7 @@
 
 - [冒泡排序](BubbleSort)
 - [快速排序](QuickSort)
-- 插入排序
+- [插入排序](InsertionSort)
 - 希尔排序
 - 选择排序
 - 堆排序
