@@ -32,10 +32,10 @@
 这里取序列的第一个元素为基准。
 
 ```c
-void swap(int arr[], int low, int high) {
-    int temp = arr[low];
-    arr[low] = arr[high];
-    arr[high] = temp;
+void swap(int arr[], int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
 int SelectPivot(int arr[], int low) {

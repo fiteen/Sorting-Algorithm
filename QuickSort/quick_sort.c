@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* 交换位置函数，交换 low 和 high 的位置 */
-void swap(int arr[], int low, int high) {
-	int temp = arr[low];
-	arr[low] = arr[high];
-	arr[high] = temp;
+/* 交换位置函数，交换 i 和 j 的位置 */
+void swap(int arr[], int i, int j) {
+	int temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
 }
 
 /* 选取序列的第一个元素作为基准 */
