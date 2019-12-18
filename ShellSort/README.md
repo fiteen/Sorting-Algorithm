@@ -1,6 +1,6 @@
 ## 希尔排序
 
-希尔排序（Shell's Sort）是第一个突破 O(n^2) 的排序算法，是直接插入排序的改进版，又称“**缩小增量排序**”（Diminishing Increment Sort）。它与直接插入排序不同之处在于，它会优先比较距离较远的元素。
+希尔排序（Shell's Sort）是第一个突破 O(n²) 的排序算法，是直接插入排序的改进版，又称“**缩小增量排序**”（Diminishing Increment Sort）。它与直接插入排序不同之处在于，它会优先比较距离较远的元素。
 
 ### 基本思想
 
@@ -22,12 +22,12 @@
 void ShellSort_SplitHalf(int arr[], int len) {
     int i, j, dk, temp;
     for (dk = len >> 1; dk > 0; dk = dk >> 1) {
-	for (i = dk; i < len; i++) {
-	    temp = arr[i];
-	    for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
-		arr[j + dk] = arr[j];
-	    arr[j + dk] = temp;
-	}
+		for (i = dk; i < len; i++) {
+		    temp = arr[i];
+		    for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
+				arr[j + dk] = arr[j];
+		    arr[j + dk] = temp;
+		}
     }
 }
 ```
@@ -39,12 +39,12 @@ void ShellInsert(int arr[], int len, int dk) {
     int i, j, temp;
     for (i = dk; i < len; i+= dk) {
         temp = arr[i];
-	j = i - dk;
-	while (j >= 0 && temp < arr[j]) {
-	    arr[j+dk] = arr[j];
-	    j -= dk;
-	}
-	arr[j+dk] = temp;
+		j = i - dk;
+		while (j >= 0 && temp < arr[j]) {
+		    arr[j+dk] = arr[j];
+		    j -= dk;
+		}
+		arr[j+dk] = temp;
     }
 }
 
@@ -52,10 +52,11 @@ void ShellSort(int arr[], int len, int dlta[], int t) {
     int k;
     for (k = 0; k < t; ++k) {
         // 一趟增量为 delta[k] 的插入排序
-	ShellInsert(arr, len, dlta[k]);
+		ShellInsert(arr, len, dlta[k]);
     }
 }
 ```
 
 ### 算法分析
-希尔排序是**不稳定排序**，它的分析是一个复杂的问题，因为它的运行时间依赖于增量序列的选择，它的平均时间复杂度为O(n^1.3)，最好情况是 O(n)，最差情况是 O(n^2)。空间复杂度为 O(1)。
+
+希尔排序是**不稳定排序**，它的分析是一个复杂的问题，因为它的运行时间依赖于增量序列的选择，它的平均时间复杂度为O(n^1.3)，最好情况是 O(n)，最差情况是 O(n²)。空间复杂度为 O(1)。
