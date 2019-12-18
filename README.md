@@ -12,7 +12,7 @@
 - [快速排序](QuickSort)
 - [直接插入排序](StraightInsertionSort)
 - [希尔排序](ShellSort)
-- 选择排序
+- [选择排序](SelectionSort)
 - 堆排序
 - 归并排序
 
