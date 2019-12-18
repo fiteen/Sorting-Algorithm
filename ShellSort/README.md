@@ -22,12 +22,12 @@
 void ShellSort_SplitHalf(int arr[], int len) {
     int i, j, dk, temp;
     for (dk = len >> 1; dk > 0; dk = dk >> 1) {
-		for (i = dk; i < len; i++) {
-		    temp = arr[i];
-		    for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
-				arr[j + dk] = arr[j];
-		    arr[j + dk] = temp;
-		}
+	for (i = dk; i < len; i++) {
+	    temp = arr[i];
+	    for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
+	        arr[j + dk] = arr[j];
+	    arr[j + dk] = temp;
+    	}	
     }
 }
 ```
@@ -39,20 +39,20 @@ void ShellInsert(int arr[], int len, int dk) {
     int i, j, temp;
     for (i = dk; i < len; i+= dk) {
         temp = arr[i];
-		j = i - dk;
-		while (j >= 0 && temp < arr[j]) {
-		    arr[j+dk] = arr[j];
-		    j -= dk;
-		}
-		arr[j+dk] = temp;
+	j = i - dk;
+	while (j >= 0 && temp < arr[j]) {
+            arr[j+dk] = arr[j];
+            j -= dk;
+	}
+	arr[j+dk] = temp;
     }
 }
 
 void ShellSort(int arr[], int len, int dlta[], int t) {
     int k;
     for (k = 0; k < t; ++k) {
-        // 一趟增量为 delta[k] 的插入排序
-		ShellInsert(arr, len, dlta[k]);
+	// 一趟增量为 delta[k] 的插入排序
+	ShellInsert(arr, len, dlta[k]);
     }
 }
 ```
