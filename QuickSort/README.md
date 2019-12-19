@@ -47,9 +47,7 @@ int select_pivot(int arr[], int low) {
 void quick_sort(int arr[], int low, int high) {
     int i, j, pivot;
     if (low >= high) return;
-    // pivot = select_pivot(arr, low);
-    // pivot = select_pivot_random(arr, low, high);
-    pivot = select_pivot_median_of_three(arr, low, high);
+    pivot = select_pivot(arr, low);
     i = low;
     j = high;
     while (i != j) {
