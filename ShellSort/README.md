@@ -16,18 +16,18 @@
 
 #### C语言
 
-增量序列可以有各种取法，例如上面动图所示，增量序列满足 [len / 2, len / 2 / 2, ..., 1]，len 是序列本身的长度，这也是一种比较流行的增量序列定义方式。这时希尔排序的算法可以通过下面的代码实现：
+增量序列可以有各种取法，例如上面动图所示，增量序列满足 [n / 2, n / 2 / 2, ..., 1]，n 是序列本身的长度，这也是一种比较流行的增量序列定义方式。这时希尔排序的算法可以通过下面的代码实现：
 
 ```c
-void ShellSort_SplitHalf(int arr[], int len) {
+void shell_sort_split_half(int arr[], int n) {
     int i, j, dk, temp;
-    for (dk = len >> 1; dk > 0; dk = dk >> 1) {
-	for (i = dk; i < len; i++) {
-	    temp = arr[i];
-	    for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
-	        arr[j + dk] = arr[j];
-	    arr[j + dk] = temp;
-    	}	
+    for (dk = n >> 1; dk > 0; dk = dk >> 1) {
+        for (i = dk; i < n; i++) {
+            temp = arr[i];
+            for (j = i - dk; j >= 0 && arr[j] > temp; j -= dk)
+                arr[j + dk] = arr[j];
+            arr[j + dk] = temp;
+        }
     }
 }
 ```
@@ -35,24 +35,24 @@ void ShellSort_SplitHalf(int arr[], int len) {
 增量序列也可以有其它的定义方式，那么希尔排序的实现可以归纳成这样：
 
 ```c
-void ShellInsert(int arr[], int len, int dk) {
+void shell_insert(int arr[], int n, int dk) {
     int i, j, temp;
-    for (i = dk; i < len; i+= dk) {
+    for (i = dk; i < n; i+= dk) {
         temp = arr[i];
-	j = i - dk;
-	while (j >= 0 && temp < arr[j]) {
+        j = i - dk;
+        while (j >= 0 && temp < arr[j]) {
             arr[j+dk] = arr[j];
             j -= dk;
-	}
-	arr[j+dk] = temp;
+        }
+        arr[j+dk] = temp;
     }
 }
 
-void ShellSort(int arr[], int len, int dlta[], int t) {
+void shell_sort(int arr[], int n, int dlta[], int t) {
     int k;
     for (k = 0; k < t; ++k) {
-	// 一趟增量为 delta[k] 的插入排序
-	ShellInsert(arr, len, dlta[k]);
+        // 一趟增量为 dlta[k] 的插入排序
+        shell_insert(arr, n, dlta[k]);
     }
 }
 ```

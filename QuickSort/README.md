@@ -32,33 +32,35 @@
 这里取序列的第一个元素为基准。
 
 ```c
+/* 交换位置函数，交换 i 和 j 的位置 */
 void swap(int arr[], int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }
 
-int SelectPivot(int arr[], int low) {
+/* 选取序列的第一个元素作为基准 */
+int select_pivot(int arr[], int low) {
     return arr[low];
 }
 
-void QuickSort(int arr[], int low, int high) {
+void quick_sort(int arr[], int low, int high) {
     int i, j, pivot;
     if (low >= high) return;
-    pivot = SelectPivot(arr, low, high);
+    // pivot = select_pivot(arr, low);
+    // pivot = select_pivot_random(arr, low, high);
+    pivot = select_pivot_median_of_three(arr, low, high);
     i = low;
     j = high;
-    while (i < j) {
-	while (arr[j] >= pivot && i < j) j--;
-	while (arr[i] <= pivot && i < j) i++;
-	if (i < j) {
-	    swap(arr, i, j);
-	}
+    while (i != j) {
+        while (arr[j] >= pivot && i < j) j--;
+        while (arr[i] <= pivot && i < j) i++;
+        if (i < j) swap(arr, i, j);
     }
     arr[low] = arr[i];
     arr[i] = pivot;
-    QuickSort(arr, low, i - 1);
-    QuickSort(arr, i + 1, high);
+    quick_sort(arr, low, i - 1);
+    quick_sort(arr, i + 1, high);
 }
 ```
 ### 算法分析
@@ -72,10 +74,12 @@ void QuickSort(int arr[], int low, int high) {
 就是选取序列中的任意一个数为基准的值。
 
 ```c
-int SelectPivotRandom(int arr[], int low, int high) {
+/* 随机选择基准的位置，区间在 low 和 high 之间 */
+int select_pivot_random(int arr[], int low, int high) {
     srand((unsigned)time(NULL));
     int pivot = rand()%(high - low) + low;
     swap(arr, pivot, low);
+    
     return arr[low];
 }
 ```
@@ -85,7 +89,8 @@ int SelectPivotRandom(int arr[], int low, int high) {
 就是取起始位置、中间位置、末尾位置指向的元素，对这三个元素排序后取中间数作为基准。
 
 ```c
-int SelectPivotMedianOfThree(int arr[], int low, int high) {
+/* 取起始位置、中间位置、末尾位置指向的元素三者的中间值作为基准 */
+int select_pivot_median_of_three(int arr[], int low, int high) {
     // 计算数组中间的元素的下标
     int mid = low + ((high - low) >> 1);
     // 排序，使 arr[mid] <= arr[low] <= arr[high]
@@ -96,7 +101,7 @@ int SelectPivotMedianOfThree(int arr[], int low, int high) {
         swap(arr, low, high);
     }
     if (arr[mid] > arr[low]) {
-	swap(arr, low, mid);
+        swap(arr, low, mid);
     }
     // 使用 low 位置的元素作为基准
     return arr[low];
