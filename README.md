@@ -13,7 +13,7 @@
 - [直接插入排序](StraightInsertionSort)
 - [希尔排序](ShellSort)
 - [选择排序](SelectionSort)
-- 堆排序
+- [堆排序](HeapSort)
 - 归并排序
 
 **非比较类排序**：不通过比较来决定元素间的相对次序，其时间复杂度可以突破 O(nlogn)，以线性时间运行。属于非比较类的有：
