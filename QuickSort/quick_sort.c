@@ -61,7 +61,7 @@ void quick_sort(int arr[], int low, int high) {
 }
 
 int main() {
-    int arr[] = { 5, 1, 7, 2, 8, 3, 4, 9, 0, 6};
+    int arr[] = {5, 1, 7, 2, 8, 3, 4, 9, 0, 6};
     int n = sizeof(arr) / sizeof(*arr);
     quick_sort(arr, 0, n - 1);
     printf("Sort result:\n");

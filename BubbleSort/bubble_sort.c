@@ -30,7 +30,7 @@ void bubble_sort_quicker(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = { 7, 2, 5, 3, 8};
+    int arr[] = {7, 2, 5, 3, 8};
     int n = sizeof(arr) / sizeof(*arr);
     bubble_sort(arr, n);
     // bubble_sort_quicker(arr, n);

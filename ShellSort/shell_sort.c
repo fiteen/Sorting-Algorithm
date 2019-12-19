@@ -14,14 +14,14 @@ void shell_sort_split_half(int arr[], int n) {
 
 void shell_insert(int arr[], int n, int dk) {
     int i, j, temp;
-    for (i = dk; i < n; i+= dk) {
+    for (i = dk; i < n; i += dk) {
         temp = arr[i];
         j = i - dk;
         while (j >= 0 && temp < arr[j]) {
-            arr[j+dk] = arr[j];
+            arr[j + dk] = arr[j];
             j -= dk;
         }
-        arr[j+dk] = temp;
+        arr[j + dk] = temp;
     }
 }
 

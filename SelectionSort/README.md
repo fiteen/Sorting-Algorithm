@@ -19,11 +19,11 @@
 #### C语言
 
 ```c
-void selection_sort(int arr[], int len) {
+void selection_sort(int arr[], int n) {
     int i, j;
-    for (i = 0; i < len - 1; i++) {
+    for (i = 0; i < n - 1; i++) {
         int min = i;
-        for (j = i + 1; j < len; j++) {
+        for (j = i + 1; j < n; j++) {
             if (arr[j] < arr[min])
                 min = j;
         }
