@@ -20,15 +20,15 @@
 
 ```c
 void SelectionSort(int arr[], int len) {
-	int i, j;
-	for (i = 0; i < len - 1; i++) {
-		int min = i;
-		for (j = i + 1; j < len; j++) {
-			if (arr[j] < arr[min])
-				min = j;
-		}
-		swap(arr, min, i);
+    int i, j;
+    for (i = 0; i < len - 1; i++) {
+	int min = i;
+	for (j = i + 1; j < len; j++) {
+	    if (arr[j] < arr[min])
+		min = j;
 	}
+	swap(arr, min, i);
+    }
 }
 ```
 
