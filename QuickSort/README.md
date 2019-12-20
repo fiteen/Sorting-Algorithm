@@ -32,13 +32,6 @@
 这里取序列的第一个元素为基准。
 
 ```c
-/* 交换位置函数，交换 i 和 j 的位置 */
-void swap(int arr[], int i, int j) {
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-
 /* 选取序列的第一个元素作为基准 */
 int select_pivot(int arr[], int low) {
     return arr[low];

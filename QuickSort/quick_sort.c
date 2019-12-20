@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* 交换位置函数，交换 i 和 j 的位置 */
 void swap(int arr[], int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
