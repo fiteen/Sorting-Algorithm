@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void straight_insertion_sort(int arr[], int n) {
+void insertion_sort(int arr[], int n) {
     int i, j, temp;
     for (i = 1; i < n; i++) {
         temp = arr[i];
@@ -13,7 +13,7 @@ void straight_insertion_sort(int arr[], int n) {
 int main() {
     int arr[] = {5, 1, 8, 5, 6, 3};
     int n = sizeof(arr) / sizeof(*arr);
-    straight_insertion_sort(arr, n);
+    insertion_sort(arr, n);
     printf("Sort result:\n");
     for (int i = 0; i < n; i++)
         printf("%d ", arr[i]);
