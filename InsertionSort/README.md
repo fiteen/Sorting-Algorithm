@@ -8,7 +8,7 @@
 
 ### 动图演示
 
-![](straight-insertion-sort.gif)
+![](insertion-sort.gif)
 
 ### 代码实现
 
