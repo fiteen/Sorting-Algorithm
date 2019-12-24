@@ -36,12 +36,8 @@ void heapify(int tree[], int n, int i) {
     // 右侧子节点下标
     int right = 2 * i + 2;
     int max = i;
-    if (left < n && tree[left] > tree[max]){
-        max = left;
-    }
-    if (right < n && tree[right] > tree[max]){
-        max = right;
-    }
+    if (left < n && tree[left] > tree[max]) max = left;
+    if (right < n && tree[right] > tree[max]) max = right;
     if (max != i) {
         swap(tree, max, i);
         heapify(tree, n, max);

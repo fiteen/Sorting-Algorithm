@@ -85,15 +85,9 @@ int select_pivot_median_of_three(int arr[], int low, int high) {
     // 计算数组中间的元素的下标
     int mid = low + ((high - low) >> 1);
     // 排序，使 arr[mid] <= arr[low] <= arr[high]
-    if (arr[mid] > arr[high]) {
-        swap(arr, mid, high);
-    }
-    if (arr[low] > arr[high]) {
-        swap(arr, low, high);
-    }
-    if (arr[mid] > arr[low]) {
-        swap(arr, low, mid);
-    }
+    if (arr[mid] > arr[high]) swap(arr, mid, high);
+    if (arr[low] > arr[high]) swap(arr, low, high);
+    if (arr[mid] > arr[low]) swap(arr, low, mid);
     // 使用 low 位置的元素作为基准
     return arr[low];
 }
