@@ -1,30 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void counting_sort(int arr[], int n) {
-    if (arr == NULL) return;
-    // 定义辅助空间并初始化
-    int max = arr[0], min = arr[0];
-    int i;
-    for (i = 1; i < n; i++) {
-        if (max < arr[i]) max = arr[i];
-        if (min > arr[i]) min = arr[i];
-    }
-    int size = max - min + 1;
-    int C[size];
-    memset(C, 0, sizeof(C));
-    // 定义目标数组
-    int R[n];
-    // 统计每个元素出现的次数
-    for (i = 0; i < n; i++) C[arr[i] - min]++;
-    // 对辅助空间内数据进行计算
-    for (i = 1; i < size; i++) C[i] += C[i - 1];
-    // 反向填充目标数组
-    for (i = n - 1; i >= 0; i--) R[--C[arr[i] - min]] = arr[i];
-    // 目标数组里的结果重新赋值给 arr
-    for (i = 0; i < n; i++) arr[i] = R[i];
-}
-
 void bucket_sort(int arr[], int n, int bucket_count) {
     if (arr == NULL || bucket_count < 1) return;
 
