@@ -44,13 +44,11 @@ void bucket_sort(int arr[], int n, int bucket_count) {
     int index = 0;
     for (i = 0; i < bucket_count; i++) {
         // 分别对每个非空桶内数据进行排序，比如计数排序
-        if (buckets[i][0] == 0) continue;
-        counting_sort(buckets[i], n);
+        if (counts[i] == 0) continue;
+        counting_sort(buckets[i], counts[i]);
         // 拼接非空的桶内数据，得到最终的结果
-        for (j = 0; j < n; j++) {
-            if (buckets[i][j] != 0) {
-                arr[index++] = buckets[i][j];
-            }
+        for (j = 0; j < counts[i]; j++) {
+            arr[index++] = buckets[i][j];
         }
     }
 }
