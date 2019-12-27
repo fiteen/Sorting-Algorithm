@@ -26,6 +26,8 @@
 | [计数排序](CountingSort) |   O(n+r)​   |  O(n+r)​   |  O(n+r)​  |   O(n+r)​   |  Out-place  | ✔ |
 |  [基数排序](RadixSort)   |  O(d(n+r))​  | O(d(n+r)) |  O(d(n+r))  |   O(n+r)​   |  Out-place  | ✔ |
 
+**名词解释**：
+
 **n**：待排序列的个数
 
 **r**：“桶”的个数（上面的三种非比较类排序都是基于“桶”的思想实现的）
