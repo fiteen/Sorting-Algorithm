@@ -22,7 +22,7 @@
 
 |         排序算法         | 时间复杂度 | 最差情况  | 最好情况 | 空间复杂度 | 稳定性 | 排序方式  |
 | :----------------------: | :--------: | :-------: | :------: | :--------: | :----: | :-------: |
-|   [桶排序](BucketSort)   |   O(n+k)​   |   O(n²)   |   O(n)​   |   O(n+r)​   |  ✔  | Out-place |
+|   [桶排序](BucketSort)   |   O(n+nlog(n/r))​   |   O(n²)   |   O(n)​   |   O(n+r)​   |  ✔  | Out-place |
 | [计数排序](CountingSort) |   O(n+r)​   |  O(n+r)​   |  O(n+r)​  |   O(n+r)​   |  ✔  | Out-place |
 |  [基数排序](RadixSort)   |  O(d(n+r))​  | O(d(n+r)) |  O(d(n+r))  |   O(n+r)​   |  ✔  | Out-place |
 

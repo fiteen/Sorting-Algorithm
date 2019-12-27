@@ -10,23 +10,23 @@ void counting_sort(int arr[], int n) {
         if (max < arr[i]) max = arr[i];
         if (min > arr[i]) min = arr[i];
     }
-    int size = max - min + 1;
-    int C[size];
+    int r = max - min + 1;
+    int C[r];
     memset(C, 0, sizeof(C));
     // 定义目标数组
     int R[n];
     // 统计每个元素出现的次数
     for (i = 0; i < n; i++) C[arr[i] - min]++;
     // 对辅助空间内数据进行计算
-    for (i = 1; i < size; i++) C[i] += C[i - 1];
+    for (i = 1; i < r; i++) C[i] += C[i - 1];
     // 反向填充目标数组
     for (i = n - 1; i >= 0; i--) R[--C[arr[i] - min]] = arr[i];
     // 目标数组里的结果重新赋值给 arr
     for (i = 0; i < n; i++) arr[i] = R[i];
 }
 
-void bucket_sort(int arr[], int n, int bucket_count) {
-    if (arr == NULL || bucket_count < 1) return;
+void bucket_sort(int arr[], int n, int r) {
+    if (arr == NULL || r < 1) return;
 
     // 根据最大/最小元素和桶数量，计算出每个桶对应的元素范围
     int max = arr[0], min = arr[0];
@@ -35,12 +35,12 @@ void bucket_sort(int arr[], int n, int bucket_count) {
         if (max < arr[i]) max = arr[i];
         if (min > arr[i]) min = arr[i];
     }
-    int range = (max - min + 1) / bucket_count + 1;
+    int range = (max - min + 1) / r + 1;
 
     // 建立桶对应的二维数组，一个桶里最多可能出现 n 个元素
-    int buckets[bucket_count][n];
+    int buckets[r][n];
     memset(buckets, 0, sizeof(buckets));
-    int counts[bucket_count];
+    int counts[r];
     memset(counts, 0, sizeof(counts));
     for (i = 0; i < n; i++) {
         int k = (arr[i] - min) / range;
@@ -48,7 +48,7 @@ void bucket_sort(int arr[], int n, int bucket_count) {
     }
 
     int index = 0;
-    for (i = 0; i < bucket_count; i++) {
+    for (i = 0; i < r; i++) {
         // 分别对每个非空桶内数据进行排序，比如计数排序
         if (counts[i] == 0) continue;
         counting_sort(buckets[i], counts[i]);
