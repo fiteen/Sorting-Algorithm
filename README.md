@@ -44,4 +44,4 @@
 
 **稳定性**：假设待排序列中两元素相等，排序前后这两个相等元素的相对位置不变，则认为是稳定的。
 
-> 看完整文章可以直接戳[这里](https://blog.fiteen.top/sorting-algorithm)
+> 看完整文章可以直接戳[这里](https://blog.fiteen.top/2019/sorting-algorithm)
